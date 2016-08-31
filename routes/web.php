@@ -13,4 +13,6 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('post', 'HomeController@index');
-Route::post('/', 'HomeController@store');
+Route::get('post/create', 'HomeController@create');
+Route::post('post', 'HomeController@store');
+Route::get('post/{id}', 'HomeController@show');

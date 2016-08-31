@@ -10,14 +10,17 @@ namespace App\Http\Controllers;
 use App\Post;
 use DB;
 use Illuminate\Support\Facades\View;
+use Request;
+use URL;
 
 class HomeController extends Controller
 {
     public function show($id)
     {
-        return View::make(' home')
-            ->with('title','首頁')
-            ->with('hello','大家好'.$id);
+     $post =Post::find($id);
+        return View::make('show')
+            ->with('title' , 'My Blog -'.$post->title)
+            ->with('post' ,$post);
     }
     public function index()
     {
@@ -27,10 +30,20 @@ class HomeController extends Controller
             ->with('posts',$posts);
 
     }
+    public function create()
+    {
+        return View::make('create')
+            ->with('title','新增文章');
+    }
     public function store()
     {
-        $input = Input::all();
-        return $input['title'];
+        $input = Request::all();
+        $post = new Post;
+        $post->title = $input['title'];
+        $post->content = $input['content'];
+        $post->save();
+        
+        return Redirect('post');
     }
 
 }
