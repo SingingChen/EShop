@@ -52,5 +52,16 @@ class HomeController extends Controller
             ->with('title','編輯文章')
             ->with('post' ,$post );
     }
+    public function update($id)
+    {
+        $input = Request::all();
+
+        $post =Post::find($id);
+        $post->title = $input['title'];
+        $post->content = $input['content'];
+        $post->save();
+
+        return Redirect('post');
+    }
 
 }
