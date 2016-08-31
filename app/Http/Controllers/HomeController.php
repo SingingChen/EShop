@@ -26,4 +26,10 @@ class HomeController extends Controller
             ->with('hello','大家好');
 
     }
+    public function store()
+    {
+        $input = Input::all();
+        return $input['title'];
+    }
+
 }
