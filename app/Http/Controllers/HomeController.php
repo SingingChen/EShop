@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 use App\Post;
 use DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Request;
 use URL;
@@ -63,5 +64,10 @@ class HomeController extends Controller
 
         return Redirect('post');
     }
-
+public function destroy($id)
+{
+    $post = Post::find($id);
+    $post->delete();
+    return Redirect('post');
+}
 }

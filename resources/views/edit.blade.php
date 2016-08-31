@@ -13,6 +13,9 @@
 {{Form::textarea('content', $post->content)}}<br>
 {{Form::submit('儲存')}}
 {{Form::close()}}
-
+<br>
+{{ Form::open(['url'=>'post/'.$post->id, 'method'=>'delete']) }}
+<button type="submit">刪除</button>
+{{ Form::close() }}
 </body>
 </html>
