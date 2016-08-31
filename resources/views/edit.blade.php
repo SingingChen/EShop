@@ -15,7 +15,7 @@
 {{Form::close()}}
 <br>
 {{ Form::open(['url'=>'post/'.$post->id, 'method'=>'delete']) }}
-<button type="submit">刪除</button>
+{{Form::submit('刪除')}}
 {{ Form::close() }}
 </body>
 </html>
