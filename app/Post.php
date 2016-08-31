@@ -8,10 +8,9 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent;
 
-use Illuminate\Auth\EloquentUserProvider;
-
-class Post extends Eloquent
+class Post extends Eloquent\Model
 {
 protected $table ="posts";
     

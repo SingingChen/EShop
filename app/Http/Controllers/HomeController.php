@@ -7,8 +7,8 @@
  */
 
 namespace App\Http\Controllers;
-
-
+use App\Post;
+use DB;
 use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
@@ -21,9 +21,10 @@ class HomeController extends Controller
     }
     public function index()
     {
+        $posts = Post::all();
         return View(' home')
-            ->with('title','首頁')
-            ->with('hello','大家好');
+            ->with('title','My Blog')
+            ->with('posts',$posts);
 
     }
     public function store()
