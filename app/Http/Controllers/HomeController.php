@@ -45,5 +45,12 @@ class HomeController extends Controller
         
         return Redirect('post');
     }
+    public function edit($id)
+    {
+        $post = Post::find($id);
+        return View::make('edit')
+            ->with('title','編輯文章')
+            ->with('post' ,$post );
+    }
 
 }

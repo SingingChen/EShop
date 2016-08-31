@@ -16,3 +16,4 @@ Route::get('post', 'HomeController@index');
 Route::get('post/create', 'HomeController@create');
 Route::post('post', 'HomeController@store');
 Route::get('post/{id}', 'HomeController@show');
+Route::get('post/{id}/edit', 'HomeController@edit');
