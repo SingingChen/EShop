@@ -3,6 +3,9 @@
         @section('content')
             <h1>{{ $title }}</h1>
             {{Form::open(['url'=>'post/'.$post->id, 'method'=>'put'])}}
+            {{--下列待測試   未成功--}}
+            {{--{{ Form::model($post, ['action'=>['HomeController@update', $post->id]]) }}   --}}
+
             {{Form::label('title', '標題')}}<br>
             {{Form::text('title', $post->title)}}<br>
             {{Form::label('content', '內容')}}<br>
