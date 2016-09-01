@@ -10,6 +10,6 @@
     <p>{{$post->content }}</p>
     @endif
 
-{{link_to(URL::previous(), '回上一頁')}}
+{{Html::link(URL::previous(), '回上一頁')}}
 </body>
 </html>

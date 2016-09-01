@@ -6,12 +6,12 @@
 </head>
 <body>
 <h1>{{$title}}</h1>
-<div>{{link_to('post/create','新增')}}</div>
+<div>{{Html::link('post/create','新增')}}</div>
 @if(isset($posts))
 <ol>
     @foreach($posts as $post)
-        <li>{{link_to('post/'.$post->id,$post->title)}}
-        ({{link_to('post/'.$post->id.'/edit' , '編輯')}})
+        <li>{{Html::link('post/'.$post->id,$post->title)}}
+        ({{Html::link('post/'.$post->id.'/edit' , '編輯')}})
         </li>
 @endforeach
 

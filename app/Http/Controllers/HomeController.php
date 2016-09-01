@@ -8,11 +8,12 @@
 
 namespace App\Http\Controllers;
 use App\Post;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
-use Request;
-use URL;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\URL;
+use Collective\Html;
 
 class HomeController extends Controller
 {
