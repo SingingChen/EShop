@@ -7,6 +7,7 @@
 @section('content')
     <h1>{{$title}}</h1>
     <div>{{Html::link('post/create','新增')}}</div>
+      {!!' <h1>測試</h1>'!!}
     @if(isset($posts))
         <ol>
             @foreach($posts as $post)
