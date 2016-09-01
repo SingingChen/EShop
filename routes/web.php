@@ -10,7 +10,7 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
+Route::pattern('id', '[0-9]+');//正規化
 Route::get('/', 'HomeController@index');
 
 Route::resource('post' ,'HomeController');

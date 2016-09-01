@@ -13,28 +13,28 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\URL;
-use Collective\Html;
+use Html;
 
 class HomeController extends Controller
 {
     public function show($id)
     {
      $post =Post::find($id);
-        return View::make('show')
+        return View::make('site.show')
             ->with('title' , 'My Blog -'.$post->title)
             ->with('post' ,$post);
     }
     public function index()
     {
         $posts = Post::all();
-        return View(' home')
+        return View(' site.home')
             ->with('title','My Blog')
             ->with('posts',$posts);
 
     }
     public function create()
     {
-        return View::make('create')
+        return View::make('site.create')
             ->with('title','新增文章');
     }
     public function store()
@@ -50,7 +50,7 @@ class HomeController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        return View::make('edit')
+        return View::make('site.edit')
             ->with('title','編輯文章')
             ->with('post' ,$post );
     }
