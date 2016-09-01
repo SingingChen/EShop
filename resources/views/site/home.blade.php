@@ -1,4 +1,8 @@
 @extends('site.layouts.default')
+@section('sidebar')
+   Homepage OH!!
+    @stop
+
 
 @section('content')
     <h1>{{$title}}</h1>
