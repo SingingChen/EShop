@@ -42,7 +42,6 @@ class HomeController extends Controller
     public function store()
     {
         $input = Request::all();
-
 //       處理資料驗證。使用 Validator 類別的 make() 方法來建立驗證：
 //        Validator::make(data, rules, messages, customAttributes)
 //        參數說明：
@@ -52,13 +51,20 @@ class HomeController extends Controller
 //        除了 data 及 rules，後面的兩個參數都可省略。
         $rules = ['title'=>'required'];
         $messages = ['required'=>'! title不可空白'];
-        $validators = Validator::make($input , $rules ,$messages);
-        $post = new Post;
-        $post->title = $input['title'];
-        $post->content = $input['content'];
-        $post->save();
-        
-        return Redirect('post');
+        $validator = Validator::make($input , $rules ,$messages);
+        if($validator->passes()){
+            $post = new Post;
+            $post->title = $input['title'];
+            $post->content = $input['content'];
+            $post->save();
+
+            return Redirect('post');
+        }
+
+        return Redirect('post/create')
+            ->withInput()  //withInput() 會同時把使用者有輸入資料的欄位的值回傳,如不寫這行  驗證錯誤重新倒回資料將不在寫回必須重新輸入
+            ->withErrors($validator);
+
     }
     public function edit($id)
     {
