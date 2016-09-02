@@ -13,6 +13,6 @@ use Illuminate\Database\Eloquent;
 class Post extends Eloquent\Model
 {
 protected $table ="posts";
-    
+
 
 }

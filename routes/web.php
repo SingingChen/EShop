@@ -13,6 +13,10 @@
 Route::pattern('id', '[0-9]+');//正規化
 Route::get('/', 'HomeController@index');
 
+Route::get('login', 'LoginController@show');
+Route::post('login', 'LoginController@login');
+Route::get('logout', 'LoginController@logout');
+
 Route::resource('post' ,'HomeController');
 
 //用group群組化管理
