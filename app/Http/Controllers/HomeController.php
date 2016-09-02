@@ -49,8 +49,8 @@ class HomeController extends Controller
 //        rules：陣列。驗證規則。
 //        messages：陣列。驗證失敗後要回傳的訊息。
 //        除了 data 及 rules，後面的兩個參數都可省略。
-        $rules = ['title'=>'required'];
-        $messages = ['required'=>'! title不可空白'];
+        $rules = ['title'=>'required| min:5'];
+        $messages = ['required'=>'! title不可空白' , 'min'=>'最少為5個字'];
         $validator = Validator::make($input , $rules ,$messages);
         if($validator->passes()){
             $post = new Post;
