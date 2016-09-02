@@ -20,25 +20,4 @@
 
     @endif
 
-    {{ Form::checkbox('habit', 'reading', true) }}看書<br>
-    <hr>
-
-    {{ Form::radio('city', 'taipei', true) }}Taipei<br>
-    {{ Form::radio('city', 'taichung') }}Taichung<br>
-    {{ Form::radio('city', 'kaohsiung') }}Kaohsiung<br>
-    <hr>
-
-    {{ Form::select('size', ['L'=>'大','M'=>'中','S'=>'小'], 'M') }}
-    <hr>
-
-    {{ Form::select('fruit', [
-    'A' => ['apple' => 'Apple'],
-    'B' => ['banana' => 'Banana'],
-])}}
-    <hr>
-
-    {{ Form::selectRange('number', 10, 20) }}
-    <hr>
-    {{ Form::selectMonth('month') }}
-    <hr>
 @stop

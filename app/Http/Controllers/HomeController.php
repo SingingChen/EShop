@@ -8,12 +8,14 @@
 
 namespace App\Http\Controllers;
 use App\Post;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\URL;
+use DB;
+use Redirect;
+use View;
+use Request;
+use URL;
 use Html;
+use Validator;
+use App\SocialiteUserService;
 
 class HomeController extends Controller
 {
@@ -40,6 +42,17 @@ class HomeController extends Controller
     public function store()
     {
         $input = Request::all();
+
+//       處理資料驗證。使用 Validator 類別的 make() 方法來建立驗證：
+//        Validator::make(data, rules, messages, customAttributes)
+//        參數說明：
+//        data：陣列。是準備要驗證的資料。
+//        rules：陣列。驗證規則。
+//        messages：陣列。驗證失敗後要回傳的訊息。
+//        除了 data 及 rules，後面的兩個參數都可省略。
+        $rules = ['title'=>'required'];
+        $messages = ['required'=>'! title不可空白'];
+        $validators = Validator::make($input , $rules ,$messages);
         $post = new Post;
         $post->title = $input['title'];
         $post->content = $input['content'];
@@ -71,4 +84,5 @@ public function destroy($id)
     $post->delete();
     return Redirect('post');
 }
+
 }
