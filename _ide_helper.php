@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.3.4 on 2016-09-02.
+ * Generated for Laravel 5.3.6 on 2016-09-05.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -512,7 +512,7 @@ if (! function_exists('dd')) {
 
 if (! function_exists('e')) {
     /**
-     * Escape HTML entities in a string.
+     * Escape HTML special characters in a string.
      *
      * @param  \Illuminate\Contracts\Support\Htmlable|string  $value
      * @return string
@@ -523,7 +523,7 @@ if (! function_exists('e')) {
             return $value->toHtml();
         }
 
-        return htmlentities($value, ENT_QUOTES, 'UTF-8', false);
+        return htmlspecialchars($value, ENT_QUOTES, 'UTF-8', false);
     }
 }
 
@@ -1077,6 +1077,16 @@ if (! function_exists('with')) {
          */
         public static function useStoragePath($path){
             return \Illuminate\Foundation\Application::useStoragePath($path);
+        }
+        
+        /**
+         * Get the path to the resources directory.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function resourcePath(){
+            return \Illuminate\Foundation\Application::resourcePath();
         }
         
         /**
@@ -4525,7 +4535,7 @@ if (! function_exists('with')) {
          *
          * @param int $count
          * @param callable $callback
-         * @param string $column
+         * @param string $alias
          * @return bool 
          * @static 
          */
@@ -9739,7 +9749,7 @@ if (! function_exists('with')) {
         /**
          * Return a new JSON response from the application.
          *
-         * @param string|array $data
+         * @param mixed $data
          * @param int $status
          * @param array $headers
          * @param int $options
@@ -9754,7 +9764,7 @@ if (! function_exists('with')) {
          * Return a new JSONP response from the application.
          *
          * @param string $callback
-         * @param string|array $data
+         * @param mixed $data
          * @param int $status
          * @param array $headers
          * @param int $options
@@ -10385,7 +10395,7 @@ if (! function_exists('with')) {
         }
         
         /**
-         * Alias for the "currentRouteName" method.
+         * Alias for the "currentRouteNamed" method.
          *
          * @param mixed  string
          * @return bool 
