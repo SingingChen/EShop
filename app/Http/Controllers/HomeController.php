@@ -16,6 +16,8 @@ use URL;
 use Html;
 use Validator;
 use App\SocialiteUserService;
+use App;
+use Lang;
 
 class HomeController extends Controller
 {
@@ -28,9 +30,12 @@ class HomeController extends Controller
     }
     public function index()
     {
-        $posts = Post::all();
+        App::setLocale('tw');
+        $title = Lang::get('default.title');
+
+        $posts = Post::paginate(3);
         return View(' site.home')
-            ->with('title','My Blog')
+            ->with('title',$title)
             ->with('posts',$posts);
 
     }

@@ -15,10 +15,10 @@
                     ({{Html::link('post/'.$post->id.'/edit' , '編輯')}})
                 </li>
             @endforeach
-
         </ol>
-
+        {{$posts->links()}}
     @endif
+
 
     @if(Auth::check())
     {{ Auth::user()->username}} 已登入，{{ HTML::link('logout', '登出') }}
