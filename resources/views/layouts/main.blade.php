@@ -145,7 +145,7 @@
 	</header><!--/header-->
 	
 @yield('content')
-                @include("parts.sidebar")
+               
 
 	
 	<footer id="footer"><!--Footer-->
