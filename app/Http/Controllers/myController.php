@@ -54,9 +54,9 @@ class myController extends Controller
         return view("blog");
     }
 
-    public function blog_post($i)
+    public function blog_post()
     {
-        return "文章:$i";
+        return view("blog_post");
     }
 
     public function search($key_word)

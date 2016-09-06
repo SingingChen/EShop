@@ -33,7 +33,7 @@ Route::get('/products/details/{id}', "myController@products_details");
 
 Route::get('/blog', "myController@blog");
 
-Route::get('/blog/post/{id}', "myController@blog_post");
+Route::get('/blog/post', "myController@blog_post");
 
 Route::get('/search/{key_word}', "myController@search");
 
