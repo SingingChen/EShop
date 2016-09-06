@@ -21,12 +21,12 @@ class myController extends Controller
 
     public function login()
     {
-        return "登入";
+        return view("login");
     }
 
     public function logout()
     {
-        return "登出";
+        return view("logout");
     }
 
     public function products()
@@ -36,12 +36,12 @@ class myController extends Controller
 
     public function products_category()
     {
-        return "產品目錄";
+        return view("products_category");
     }
 
     public function products_brands()
     {
-        return "產品品牌";
+        return view("products_brands");
     }
 
     public function products_details($id)
@@ -66,12 +66,12 @@ class myController extends Controller
 
     public function cart()
     {
-        return "購物車";
+        return view("cart");
     }
 
     public function checkout()
     {
-        return "結帳";
+        return  view("checkout");
     }
 
 
