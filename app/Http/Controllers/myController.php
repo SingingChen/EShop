@@ -9,20 +9,70 @@ use App\Http\Requests;
 class myController extends Controller
 {
     //
-	Route::get('/', myController@index);
-	Route::get('/contact_us', myController@contact_us);
-	Route::get('/login', myController@login);
-	Route::get('/logout', myController@logout);
-	Route::get('/products', myController@products);
-	Route::get('/products/category', myController@products_category);
-	Route::get('/products/brands', myController@products_brands);
-	Route::get('/products/details/{id}', myController@products_detail);
-	Route::get('/blog', myController@blog);
-	Route::get('/blog/post/{id}', myController@blog_post);
-	Route::get('/search/{key_word}', myController@search);
-	Route::get('/cart', myController@cart);
-	Route::get('/chechout', myController@chechout);
+  public function index()
+    {
+        return view("home");
+    }
 
+    public function contact_us()
+    {
+        return "聯絡我們";
+    }
+
+    public function login()
+    {
+        return "登入";
+    }
+
+    public function logout()
+    {
+        return "登出";
+    }
+
+    public function products()
+    {
+        return "產品列表";
+    }
+
+    public function products_category()
+    {
+        return "產品目錄";
+    }
+
+    public function products_brands()
+    {
+        return "產品品牌";
+    }
+
+    public function products_details($id)
+    {
+        return "產品介紹:$id";
+    }
+
+    public function blog()
+    {
+        return "文章列表";
+    }
+
+    public function blog_post($i)
+    {
+        return "文章:$i";
+    }
+
+    public function search($key_word)
+    {
+        return "搜尋:$key_word";
+    }
+
+    public function cart()
+    {
+        return "購物車";
+    }
+
+    public function checkout()
+    {
+        return "結帳";
+    }
 
 
 }
