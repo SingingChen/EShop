@@ -35,6 +35,7 @@
 								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
 								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
 							</ul>
+
 						</div>
 					</div>
 					<div class="col-sm-6">
@@ -88,9 +89,9 @@
 							<ul class="nav navbar-nav">
 								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="{{asset('checkout.html')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="{{asset('cart.html')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="{{asset('login.html')}}"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="{{url('checkout.html')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+								<li><a href="{{url('cart.html')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a href="{{url('login.html')}}"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>
@@ -112,24 +113,24 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="{{asset('index.html')}}" class="active">Home</a></li>
+								<li><a href="{{url('index.html')}}" class="active">Home</a></li>
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="{{asset('shop.html')}}">Products</a></li>
-										<li><a href="{{asset('product-details.html')}}">Product Details</a></li> 
-										<li><a href="{{asset('checkout.html')}}">Checkout</a></li> 
-										<li><a href="{{asset('cart.html')}}">Cart</a></li> 
-										<li><a href="{{asset('login.html')}}">Login</a></li> 
+                                        <li><a href="{{url('shop.html')}}">Products</a></li>
+										<li><a href="{{url('product-details.html')}}">Product Details</a></li> 
+										<li><a href="{{url('checkout.html')}}">Checkout</a></li> 
+										<li><a href="{{url('cart.html')}}">Cart</a></li> 
+										<li><a href="{{url('login.html')}}">Login</a></li> 
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="{{asset('blog.html')}}">Blog List</a></li>
-										<li><a href="{{asset('blog-single.html')}}">Blog Single</a></li>
+                                        <li><a href="{{url('blog.html')}}">Blog List</a></li>
+										<li><a href="{{url('blog-single.html')}}">Blog Single</a></li>
                                     </ul>
                                 </li> 
-								<li><a href="{{asset('404.html')}}">404</a></li>
-								<li><a href="{{asset('contact-us.html')}}">Contact</a></li>
+								<li><a href="{{url('404.html')}}">404</a></li>
+								<li><a href="{{url('contact-us.html')}}">Contact</a></li>
 							</ul>
 						</div>
 					</div>
@@ -143,7 +144,9 @@
 		</div><!--/header-bottom-->
 	</header><!--/header-->
 	
-@yeild('content')
+
+                @include("parts.sidebar")
+
 	
 	<footer id="footer"><!--Footer-->
 		<div class="footer-top">
