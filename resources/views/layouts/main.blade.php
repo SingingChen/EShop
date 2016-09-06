@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+    <title>{{$title}} | E-Shopper</title>
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
@@ -87,11 +87,14 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+								
+								<li><a href="#" {{$title == "Account" ? "class=active" : ""}}><i class="fa fa-user"></i> Account</a></li>
+
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="{{url('checkout.html')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="{{url('cart.html')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="{{url('login.html')}}"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="{{url('checkout')}}" {{$title == "Checkout" ? "class=active" : ""}}><i class="fa fa-crosshairs"></i> Checkout</a></li>
+
+								<li><a href="{{url('cart.html')}}" {{$title == "Cart" ? "class=active" : ""}}><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a href="{{url('login.html')}}" {{$title == "Login" ? "class=active" : ""}}><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>
@@ -111,28 +114,18 @@
 								<span class="icon-bar"></span>
 							</button>
 						</div>
-						<div class="mainmenu pull-left">
-							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="{{url('index.html')}}" class="active">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="{{url('shop.html')}}">Products</a></li>
-										<li><a href="{{url('product-details.html')}}">Product Details</a></li> 
-										<li><a href="{{url('checkout.html')}}">Checkout</a></li> 
-										<li><a href="{{url('cart.html')}}">Cart</a></li> 
-										<li><a href="{{url('login.html')}}">Login</a></li> 
-                                    </ul>
-                                </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="{{url('blog.html')}}">Blog List</a></li>
-										<li><a href="{{url('blog-single.html')}}">Blog Single</a></li>
-                                    </ul>
-                                </li> 
-								<li><a href="{{url('404.html')}}">404</a></li>
-								<li><a href="{{url('contact-us.html')}}">Contact</a></li>
-							</ul>
-						</div>
+
+  						<div class="mainmenu pull-left">
+                                <ul class="nav navbar-nav collapse navbar-collapse">
+                                    <li><a href="{{url("/")}}" {{$title == "Home" ? "class=active" : ""}}>Home</a></li>
+                                    <li><a href="{{url("/products")}}" {{$title == "Products" ? "class=active" : ""}}>Products</a></li>
+                                    <li><a href="{{url("/blog")}}" {{$title == "Blog" ? "class=active" : ""}}>Blog</a></li>
+                                    <li><a href="{{url("/contact_us")}}" {{$title == "Contact Us" ? "class=active" : ""}}>Contact Us</a></li>
+                                </ul>
+                            </div>
+
+
+
 					</div>
 					<div class="col-sm-3">
 						<div class="search_box pull-right">
