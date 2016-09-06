@@ -31,7 +31,7 @@ class myController extends Controller
 
     public function products()
     {
-        return "產品列表";
+        return view('products');
     }
 
     public function products_category()
