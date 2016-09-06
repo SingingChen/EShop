@@ -51,7 +51,7 @@ class myController extends Controller
 
     public function blog()
     {
-        return "文章列表";
+        return view("blog");
     }
 
     public function blog_post($i)
@@ -71,7 +71,7 @@ class myController extends Controller
 
     public function checkout()
     {
-        return  view("checkout");
+        return view("checkout");
     }
 
 
