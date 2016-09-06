@@ -16,7 +16,7 @@ class myController extends Controller
 
     public function contact_us()
     {
-        return "聯絡我們";
+        return view("contact_us");
     }
 
     public function login()

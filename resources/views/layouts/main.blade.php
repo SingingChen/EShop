@@ -144,7 +144,7 @@
 		</div><!--/header-bottom-->
 	</header><!--/header-->
 	
-
+@yield('content')
                 @include("parts.sidebar")
 
 	
