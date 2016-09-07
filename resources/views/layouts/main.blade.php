@@ -93,8 +93,8 @@
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="{{url('checkout')}}" {{$title == "Checkout" ? "class=active" : ""}}><i class="fa fa-crosshairs"></i> Checkout</a></li>
 
-								<li><a href="{{url('cart.html')}}" {{$title == "Cart" ? "class=active" : ""}}><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="{{url('login.html')}}" {{$title == "Login" ? "class=active" : ""}}><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="{{url('cart')}}" {{$title == "Cart" ? "class=active" : ""}}><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a href="{{url('login')}}" {{$title == "Login" ? "class=active" : ""}}><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>
