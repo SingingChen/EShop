@@ -8,12 +8,14 @@ use App\Http\Requests;
 
 class myController extends Controller
 {
-    //
-  public function index()
+    public function index()
     {
-    return view("home", ["title" => "Home"]);
-
+        $product = new \App\Product();
+        $product->name = "testhello~~ 從 Controller 12345";
+        $product->save();
+        return view("home", ["title" => "Home"]);
     }
+
 
     public function contact_us()
     {
