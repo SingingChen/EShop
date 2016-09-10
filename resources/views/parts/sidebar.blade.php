@@ -32,8 +32,8 @@
 										</li>
 
 										@endforeach
-									{{$brands->get(0)->name}}<br>
-									{{$brands->get(2)->name}}
+									{{--測試取單一值用--}}
+									{{--{{$brands->get(0)->name}}--}}
 								</ul>
 							</div>
 						</div><!--/brands_products-->
