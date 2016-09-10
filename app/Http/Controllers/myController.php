@@ -24,18 +24,20 @@ class myController extends Controller
 //        $product = new \App\Product();
 //        $product->name = "testhello~~ 從 Controller 12345";
 //        $product->save();
-        return view("home", ["title" => "Home","producta"=>$this->products, "categories"=>$this->categories, "brands"=>$this->brands]);
+
+        return view("home", ["title" => "Home", "description" => "網頁說明", "products" => $this->products, "categories" => $this->categories, "brands" => $this->brands]);
+
     }
 
 
     public function contact_us()
     {
-     return view("contact_us", ["title" => "Contact Us"]);
+     return view("contact_us", ["title" => "Contact Us", "description" => "網頁說明"]);
     }
 
     public function login()
     {
-        return view("login", ["title" => "Login"]);
+        return view("login", ["title" => "Login", "description" => "網頁說明"]);
 
     }
 
@@ -46,7 +48,7 @@ class myController extends Controller
 
     public function products()
     {
-        return view("products", ["title" => "Products" ,"products"=>$this->products, "categories"=>$this->categories , "brands"=>$this->brands]);
+        return view("products", ["title" => "Products" , "description" => "網頁說明","products"=>$this->products, "categories"=>$this->categories , "brands"=>$this->brands]);
 
     }
 
@@ -62,19 +64,19 @@ class myController extends Controller
 
     public function products_details($id)
     {
-        return view("products_details",['title'=>'Products Details','i'=>$id]);
+        return view("products_details",['title'=>'Products Details', "description" => "網頁說明",'i'=>$id]);
      
     }
 
     public function blog()
     {
-        return view("blog", ["title" => "Blog", "products" => $this->products, "categories" => $this->categories, "brands" => $this->brands]);
+        return view("blog", ["title" => "Blog", "products" => $this->products, "description" => "網頁說明", "categories" => $this->categories, "brands" => $this->brands]);
 
     }
 
     public function blog_post($i)
     {
-        return view("blog_post", ["title" => "Blog", "i" => $i]);
+        return view("blog_post", ["title" => "Blog", "description" => "網頁說明", "i" => $i]);
 
     }
 
@@ -85,12 +87,12 @@ class myController extends Controller
 
     public function cart()
     {
-        return view("cart",['title' =>'Cart']);
+        return view("cart",['title' =>'Cart', "description" => "網頁說明"]);
     }
 
     public function checkout()
     {
-        return view("checkout", ["title" => "Checkout"]);
+        return view("checkout", ["title" => "Checkout", "description" => "網頁說明"]);
     }
 
 
