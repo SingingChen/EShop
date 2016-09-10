@@ -41,4 +41,45 @@ Route::get('/cart', "myController@cart");
 
 Route::get('/checkout', "myController@checkout");
 
+Route::get('/test/write', function (){
+    $product = new \App\Product();
+//    $product->name = '345test';
+//    $product->title = "ehryjt";
+//    $product->description = "test";
+//    $product->price = 1245;
+//    $product->category_id =2;
+//    $product->brand_id = 3;
+//    $product->created_at_ip = "";
+//    $product->updated_at_ip = "";
+//    $product->save();
+
+    $product->create(["name"=>'66333test' , "title"=>"fytfjyf" ,"price"=>234]);
+
+    return redirect('/test/read');
+});
+//ok
+Route::get('/test/read' ,function(){
+   $product =  new \App\Product();
+
+$product_datas = $product->all(['id' ,'name', 'price']);
+    foreach ($product_datas as $product_data)
+    {
+        echo "$product_data->id , $product_data->name ,$product_data->price <br>";
+    }
+});
+//ok
+Route::get('/test/update/{id}' , function ($id){
+    $product = \App\Product::find($id);
+    $product->name = "更改測試";
+    $product->save();
+    return redirect("/test/read");
+});
+//ok
+Route::get('/test/delete/{id}' ,function($id){
+    $product = \App\Product::find($id);
+    $product->delete();
+    return redirect("/test/read");
+    
+});
+
 
