@@ -8,12 +8,23 @@ use App\Http\Requests;
 
 class myController extends Controller
 {
+    var $products;
+    var $categories;
+    var  $brands;
+
+    public function __construct()
+    {
+        $this->products = \App\Product::all(["id","name","price"]);
+        $this->categories =\App\Category::all(["name"]);
+        $this->brands =\App\Brand::all(["name"]);
+        }
+
     public function index()
     {
-        $product = new \App\Product();
-        $product->name = "testhello~~ 從 Controller 12345";
-        $product->save();
-        return view("home", ["title" => "Home"]);
+//        $product = new \App\Product();
+//        $product->name = "testhello~~ 從 Controller 12345";
+//        $product->save();
+        return view("home", ["title" => "Home","producta"=>$this->products, "categories"=>$this->categories, "brands"=>$this->brands]);
     }
 
 
@@ -35,7 +46,7 @@ class myController extends Controller
 
     public function products()
     {
-        return view("products", ["title" => "Products"]);
+        return view("products", ["title" => "Products" ,"products"=>$this->products, "categories"=>$this->categories , "brands"=>$this->brands]);
 
     }
 
@@ -57,7 +68,7 @@ class myController extends Controller
 
     public function blog()
     {
-        return view("blog", ["title" => "Blog"]);
+        return view("blog", ["title" => "Blog", "products" => $this->products, "categories" => $this->categories, "brands" => $this->brands]);
 
     }
 
