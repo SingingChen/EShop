@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -41,6 +42,8 @@ Route::get('/cart', "myController@cart");
 
 Route::get('/checkout', "myController@checkout");
 
+Route::post('/cart/add', "myController@cart_add");
+
 Route::get('/test/write', function (){
     $product = new \App\Product();
 //    $product->name = '345test';
@@ -70,8 +73,11 @@ $product_datas = $product->all(['id' ,'name', 'price']);
 //ok
 Route::get('/test/update/{id}' , function ($id){
     $product = \App\Product::find($id);
-    $product->name = "更改測試";
+    $product->price = 346;
+    $product->description = "sghoeur";
+
     $product->save();
+    
     return redirect("/test/read");
 });
 //ok

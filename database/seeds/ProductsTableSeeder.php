@@ -14,11 +14,12 @@ class ProductsTableSeeder extends Seeder
         $faker = Faker\Factory::create('zh_TW');
         $name =['牛仔褲' ,'上衣' ,'帽子'];
         
-        for($i=0;$i<10;$i++){
+        for($i=0;$i<50;$i++){
             $no = $faker->ean8;
             $product_and_category_id = $faker->numberBetween(0,2);
             $product_name = $name[$product_and_category_id];
-            
+
+//            insert 可改update
             DB::table('products')->insert([
                     'name' => "$product_name-$no",
                     "title" => "$product_name-$no",
