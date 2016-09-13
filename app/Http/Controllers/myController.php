@@ -90,27 +90,41 @@ class myController extends Controller
 
     public function cart()
     {
-        if(Request::isMethod('post'))
-        {
+        if (Request::isMethod('post')) {
             $product_id = Request::get('product_id');
-            $product  =\App\Product::find($product_id);
+            $product = \App\Product::find($product_id);
 
-            Cart::add(array('id' =>$product_id , 'name'=> $product->name , 'qty'=> 1, 'price' => $product->price));
+            Cart::add(array('id' => $product_id, 'name' => $product->name, 'qty' => 1, 'price' => $product->price));
         }
 
-        if(Request::get("product_id")&&(Request::get("add")==1))
-        {
-            $items = Cart::Search(function ($carItem , $rowId){
-               return $carItem->id == Request::get("product_id");
-            });
-            Cart::update($items->first()->rowId , $items->first()->qty + 1);
-//            echo $items;
-        }
-        if(Request::get("product_id")&&(Request::get("minus")==1)){
-            $items = Cart::Search(function ($carItem , $rowId){
+        if (Request::get("product_id") && (Request::get("add") == 1)) {
+            $items = Cart::Search(function ($carItem, $rowId) {
                 return $carItem->id == Request::get("product_id");
             });
-            Cart::update($items->first()->rowId , $items->first()->qty - 1);
+            Cart::update($items->first()->rowId, $items->first()->qty + 1);
+//            echo $items;
+        }
+        if (Request::get("product_id") && (Request::get("minus") == 1)) {
+            $items = Cart::Search(function ($carItem, $rowId) {
+                return $carItem->id == Request::get("product_id");
+            });
+            Cart::update($items->first()->rowId, $items->first()->qty - 1);
+        }
+        if (Request::get("product_id") && (Request::get("clear") == 1)) {
+            $items = Cart::Search(function ($carItem, $rowId) {
+//                foreach ($carItem as $value){
+//                    //$carItem 為購物車裡所有項目
+//                    echo "$value<br>";
+//                }
+
+                return $carItem->id == Request::get("product_id");
+            });
+
+            //$items為搜尋出來要刪除的那一項
+//            echo "$items<br>";
+
+            Cart::remove($items->first()->rowId);
+
         }
         $cart = Cart::content();
         return view("cart", ["title" => "Cart", "description" => "網頁說明", "cart" => $cart]);
