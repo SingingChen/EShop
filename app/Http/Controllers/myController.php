@@ -95,7 +95,22 @@ class myController extends Controller
             $product_id = Request::get('product_id');
             $product  =\App\Product::find($product_id);
 
-            Cart::add(array('id' =>$product_id , 'name'=> $product->name , 'qty'=>1, 'price'=>$product->price));
+            Cart::add(array('id' =>$product_id , 'name'=> $product->name , 'qty'=> 1, 'price' => $product->price));
+        }
+
+        if(Request::get("product_id")&&(Request::get("add")==1))
+        {
+            $items = Cart::Search(function ($carItem , $rowId){
+               return $carItem->id == Request::get("product_id");
+            });
+            Cart::update($items->first()->rowId , $items->first()->qty + 1);
+//            echo $items;
+        }
+        if(Request::get("product_id")&&(Request::get("minus")==1)){
+            $items = Cart::Search(function ($carItem , $rowId){
+                return $carItem->id == Request::get("product_id");
+            });
+            Cart::update($items->first()->rowId , $items->first()->qty - 1);
         }
         $cart = Cart::content();
         return view("cart", ["title" => "Cart", "description" => "網頁說明", "cart" => $cart]);
