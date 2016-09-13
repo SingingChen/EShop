@@ -37,7 +37,7 @@
                                             <div class="overlay-content">
                                                 <h2>{{$product->price}}</h2>
                                                 <p>{{$product->name}}</p>
-                                                <form method="post" action="{{url('cart/add')}}">
+                                                <form method="post" action="{{url('cart')}}">
                                                     <input type="hidden" name="product_id" value="{{$product->id}}">
                                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                                     <button type="submit" class="btn-default add-to-cart"><i

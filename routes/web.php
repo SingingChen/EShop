@@ -40,6 +40,8 @@ Route::get('/search/{key_word}', "myController@search");
 
 Route::get('/cart', "myController@cart");
 
+Route::post('/cart', "myController@cart");
+
 Route::get('/checkout', "myController@checkout");
 
 Route::post('/cart/add', "myController@cart_add");

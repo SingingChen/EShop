@@ -90,6 +90,13 @@ class myController extends Controller
 
     public function cart()
     {
+        if(Request::isMethod('post'))
+        {
+            $product_id = Request::get('product_id');
+            $product  =\App\Product::find($product_id);
+
+            Cart::add(array('id' =>$product_id , 'name'=> $product->name , 'qty'=>1, 'price'=>$product->price));
+        }
         $cart = Cart::content();
         return view("cart", ["title" => "Cart", "description" => "網頁說明", "cart" => $cart]);
 
