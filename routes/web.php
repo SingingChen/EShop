@@ -46,6 +46,8 @@ Route::get('/checkout', "myController@checkout");
 
 Route::post('/cart/add', "myController@cart_add");
 
+Route::get('/clear_cart' , "myController@clear_cart");
+
 Route::get('/test/write', function (){
     $product = new \App\Product();
 //    $product->name = '345test';

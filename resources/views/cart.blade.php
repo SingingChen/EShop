@@ -123,12 +123,12 @@
                 <div class="col-sm-6">
                     <div class="total_area">
                         <ul>
-                            <li>Cart Sub Total <span>$59</span></li>
-                            <li>Eco Tax <span>$2</span></li>
+                            <li>Cart Sub Total <span>{{Cart::subtotal()}}</span></li>
+                            <li>Eco Tax <span>{{Cart::tax()}}</span></li>
                             <li>Shipping Cost <span>Free</span></li>
                             <li>Total <span>{{Cart::total()}}</span></li>
                         </ul>
-                        <a class="btn btn-default update" href="">Update</a>
+                        <a class="btn btn-default update" href="{{url('clear_cart')}}">CLEAR CAR</a>
                         <a class="btn btn-default check_out" href="">Check Out</a>
                     </div>
                 </div>

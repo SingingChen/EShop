@@ -141,8 +141,12 @@ class myController extends Controller
             "qty" => 1,
             "price" => $product->price]);
         return redirect("cart")->with(["title" => "Cart", "description" => "網頁說明"]);
+    }
 
-
+    public function clear_cart()
+    {
+        Cart::destroy();
+        return redirect("cart")->with(["title" => "Cart", "description" => "網頁說明"]);
     }
 
     public function checkout()
