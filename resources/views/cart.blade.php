@@ -22,7 +22,7 @@
                     </thead>
                     <tbody>
 
-                    @foreach($cart as $item)
+                    @foreach( $cart as $item)
                         <tr>
                             <td class="cart_product">
                                 <a href=""><img src="{{asset('images/cart/one.png')}}" alt=""></a>

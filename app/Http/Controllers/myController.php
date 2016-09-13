@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 
-use Request;
+use Redirect;
 use App\Http\Requests;
+use Request;
 use Cart;
+
 
 class myController extends Controller
 {
@@ -65,7 +67,7 @@ class myController extends Controller
 
     public function products_details($id)
     {
-        return view("products_details", ['title' => 'Products Details', "description" => "網頁說明", 'i' => $id]);
+        return view("products_details", ['title' => 'Products Details', "description" => "網頁說明", 'i' => $id, "products" => $this->products, "categories" => $this->categories, "brands" => $this->brands]);
 
     }
 
@@ -88,20 +90,23 @@ class myController extends Controller
 
     public function cart()
     {
-        return view("cart", ['title' => 'Cart', "description" => "網頁說明"]);
+        $cart = Cart::content();
+        return view("cart", ["title" => "Cart", "description" => "網頁說明", "cart" => $cart]);
+
     }
 
     public function cart_add()
     {
         $product_id = Request::get("product_id");
         $product = \App\Product::find($product_id);
+
         Cart::add(["id" => $product_id,
             "name" => $product->name,
             "qty" => 1,
             "price" => $product->price]);
-        $cart = Cart::content();
+        return redirect("cart")->with(["title" => "Cart", "description" => "網頁說明"]);
 
-        return view("cart", ["cart" => $cart, "title" => "Cart", "description" => "網頁說明"]);
+
     }
 
     public function checkout()
