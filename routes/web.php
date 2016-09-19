@@ -44,6 +44,9 @@ Route::post('/cart', "myController@cart");
 
 Route::get('/checkout', "myController@checkout");
 
+//在路由使用中間層檢查是否已經登入
+Route::get('/checkout', ["middleware" => "auth", "uses" => "myController@checkout"]);
+
 Route::post('/cart/add', "myController@cart_add");
 
 Route::get('/clear_cart' , "myController@clear_cart");
