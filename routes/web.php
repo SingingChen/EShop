@@ -50,6 +50,10 @@ Route::get('/clear_cart' , "myController@clear_cart");
 
 Route::post('/register' , "myController@register");
 
+Route::post('/auth/login' , "myController@auth_login");
+
+Route::get('/auth/logout' , "myController@auth_logout");
+
 Route::get('/test/write', function (){
     $product = new \App\Product();
 //    $product->name = '345test';

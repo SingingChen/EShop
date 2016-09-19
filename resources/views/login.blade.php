@@ -15,9 +15,10 @@
 						@endif
 					<div class="login-form"><!--login form-->
 						<h2>Login to your account</h2>
-						<form   action="#">
-							<input type="text" placeholder="Name" />
-							<input type="email" placeholder="Email Address" />
+						<form  method="post" action="{{url('/auth/login')}}">
+							{{csrf_field()}}
+							<input type="email" placeholder="Email Address" id="email" name="email" />
+							<input type="password" placeholder="Password" id="password" name="password" />
 							<span>
 								<input type="checkbox" class="checkbox"> 
 								Keep me signed in

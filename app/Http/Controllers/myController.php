@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 
+use Doctrine\DBAL\Tools\Console\Command\ReservedWordsCommand;
 use Redirect;
 use App\Http\Requests;
 use Request;
 use Cart;
-
+use Auth;
 
 class myController extends Controller
 {
@@ -168,6 +169,25 @@ class myController extends Controller
             return redirect("login")->with(['message' =>'Register Sucess']);
         }
     }
+
+    public function auth_login()
+    {
+        if(Auth::attempt(["email" =>Request::get("email"),"password" =>Request::get("password")]))
+        {
+            return redirect("/");
+        }
+        else
+        {
+            return redirect("login");
+        }
+    }
+
+    public function auth_logout()
+    {
+        Auth::logout();
+        return redirect("/");
+    }
+
 
 
 }
