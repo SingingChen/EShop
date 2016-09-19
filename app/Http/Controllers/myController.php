@@ -154,5 +154,20 @@ class myController extends Controller
         return view("checkout", ["title" => "Checkout", "description" => "網頁說明"]);
     }
 
+    public function register()
+    {
+        if (Request::isMethod('post'))
+        {
+            \App\User::create([
+                'name' => Request::get('name'),
+                'email' => Request::get('email'),
+                'password' => bcrypt(Request::get('password')),
+            ]);
+
+
+            return redirect("login");
+        }
+    }
+
 
 }

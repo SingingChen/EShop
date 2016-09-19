@@ -48,6 +48,8 @@ Route::post('/cart/add', "myController@cart_add");
 
 Route::get('/clear_cart' , "myController@clear_cart");
 
+Route::post('/register' , "myController@register");
+
 Route::get('/test/write', function (){
     $product = new \App\Product();
 //    $product->name = '345test';
