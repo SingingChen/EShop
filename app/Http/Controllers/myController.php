@@ -165,7 +165,7 @@ class myController extends Controller
             ]);
 
 
-            return redirect("login");
+            return redirect("login")->with(['message' =>'Register Sucess']);
         }
     }
 

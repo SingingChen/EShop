@@ -6,6 +6,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-1">
+
+					@if(Session::has('message'))
+						<div class="alert alert-info">
+							{{Session::get('message')}}
+						</div>
+
+						@endif
 					<div class="login-form"><!--login form-->
 						<h2>Login to your account</h2>
 						<form   action="#">
