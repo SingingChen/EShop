@@ -9,6 +9,7 @@ use App\Http\Requests;
 use Request;
 use Cart;
 use Auth;
+use Socialite;
 
 class myController extends Controller
 {
@@ -187,7 +188,16 @@ class myController extends Controller
         Auth::logout();
         return redirect("/");
     }
+    public function fb_redirect()
+    {
+        return Socialite::driver("facebook")->redirect();
 
+    }
+    public function  fb_callback()
+    {
+        return "我回來了～";
+
+    }
 
 
 }

@@ -53,6 +53,10 @@ Route::get('/clear_cart' , "myController@clear_cart");
 
 Route::post('/register' , "myController@register");
 
+Route::get('/fb_redirect' , "myController@fb_redirect");
+
+Route::get('/fb_callback' , "myController@fb_callback");
+
 Route::post('/auth/login' , "myController@auth_login");
 
 Route::get('/auth/logout' , "myController@auth_logout");
