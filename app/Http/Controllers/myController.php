@@ -195,7 +195,10 @@ class myController extends Controller
     }
     public function  fb_callback()
     {
-        return "我回來了～";
+//        return "我回來了～";
+        $vendor_user = Socialite::driver("facebook")->user();
+
+        return "$vendor_user->id, $vendor_user->nickname, $vendor_user->name, $vendor_user->email, $vendor_user->avatar";
 
     }
 
