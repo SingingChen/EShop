@@ -48,6 +48,7 @@
 								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
 								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+
 								<li><a href="https://www.facebook.com/sharer/sharer.php?u={{url("")}}" target="_blank"><i class="fa fa-facebook-official"></i></a></li>
 
 							</ul>
