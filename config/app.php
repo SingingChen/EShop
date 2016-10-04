@@ -180,6 +180,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        // Allpay歐付寶
+        ScottChayaa\Allpay\AllpayServiceProvider::class,
+
 
 
     ],
@@ -230,6 +233,10 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        // Allpay
+        "Allpay" => ScottChayaa\Allpay\Facade\Allpay::class,
+
+
 
     ],
 

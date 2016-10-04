@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "eacbb41aecb173abd0659444c6568fbf",
-    "content-hash": "80ef7ec789d1abc45a7703a2e73c61ed",
+    "hash": "5aa462386cf60c815f2c63791025bc6a",
+    "content-hash": "71728f3b1d30b3e8194ade87ccd43a7f",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1361,6 +1361,42 @@
                 "uuid"
             ],
             "time": "2016-08-02 18:39:32"
+        },
+        {
+            "name": "scottchayaa/allpay",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ScottChayaa/Allpay.git",
+                "reference": "0e8e7ed5e68f24175e91cdcf2b9ec593bbcd23e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ScottChayaa/Allpay/zipball/0e8e7ed5e68f24175e91cdcf2b9ec593bbcd23e8",
+                "reference": "0e8e7ed5e68f24175e91cdcf2b9ec593bbcd23e8",
+                "shasum": ""
+            },
+            "type": "ectool",
+            "autoload": {
+                "classmap": [
+                    "src/lib"
+                ],
+                "psr-4": {
+                    "ScottChayaa\\Allpay\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Scott Lin",
+                    "email": "mmx112945@gmail.com"
+                }
+            ],
+            "description": "Allpay - Laravel 5 version",
+            "keywords": [
+                "allpay"
+            ],
+            "time": "2016-08-13 07:16:32"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4386,7 +4422,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "scottchayaa/allpay": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
