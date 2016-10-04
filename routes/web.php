@@ -112,3 +112,18 @@ Route::get('/test/delete/{id}' ,function($id){
 //Route::auth();
 
 //Route::get('/home', 'HomeController@index');
+
+
+//歐付寶相關路由群組
+//Route::group用來定義多個路由群組
+//其中定義namespace屬性，才可以抓到ScottChayaa底下的controler
+//定義prefix屬性定義前綴路由，減少路由文字量
+Route::group([
+    'namespace' => 'ScottChayaa\Allpay\Controllers',
+    'prefix'    => 'allpay_demo_201608'],
+    function () {
+        //因為prefix有定義'allpay_demo_201608'，所以下列的'/'路由等同allpay_demo_201608，'/checkot'等同'allpay_demo_201608/checkout'
+        Route::get('/', 'DemoController@index');
+        Route::get('/checkout', 'DemoController@checkout');
+    }
+);
