@@ -220,5 +220,11 @@ class myController extends Controller
 
     }
 
+    public function account()
+    {
+        return view("account", ["title" => "Account", "description" => "網頁說明"]);
+    }
+
+
 
 }

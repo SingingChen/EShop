@@ -127,3 +127,5 @@ Route::group([
         Route::get('/checkout', 'DemoController@checkout');
     }
 );
+
+Route::get('/account', ["middleware" => "auth", "uses" => "myController@account"]);
