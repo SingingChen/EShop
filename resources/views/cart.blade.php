@@ -130,6 +130,8 @@
                         </ul>
                         <a class="btn btn-default update" href="{{url('clear_cart')}}">CLEAR CAR</a>
                         <a class="btn btn-default check_out" href="">Check Out</a>
+                        <a href="{{url("allpay_demo_201608/checkout")}}" class="btn btn-default check_out"  name="update_cart">歐付寶測試</a>
+
                     </div>
                 </div>
             </div>
