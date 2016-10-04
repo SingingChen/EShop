@@ -77,6 +77,10 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
+                <div class="panel-body">
+                    Your Application's Landing Page.
+                </div>
+
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>

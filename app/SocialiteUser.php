@@ -8,7 +8,9 @@ class SocialiteUser extends Model
 {
     //
     protected $fillable=[
-      "vendors","vendor_user_id","user_id"
+      "vendor",
+        "vendor_user_id",
+        "user_id"
     ];
 
     /**
@@ -16,6 +18,7 @@ class SocialiteUser extends Model
      */
     public function user()
     {
+        //建立與users資料表(User ORM對應到的是users資料表)的關聯php 
         return $this->belongsTo(User::class);
     }
 

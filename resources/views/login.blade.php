@@ -24,6 +24,8 @@
 								Keep me signed in
 							</span>
 							<button type="submit" class="btn btn-default">Login</button>
+							<a href="{{url('/fb_redirect')}}"><button type="button"  class="btn btn-default">Login with facebook</button></a>
+
 						</form>
 					</div><!--/login form-->
 				</div>

@@ -42,9 +42,10 @@ Route::get('/cart', "myController@cart");
 
 Route::post('/cart', "myController@cart");
 
-Route::get('/checkout', "myController@checkout");
+//Route::get('/checkout', "myController@checkout");
 
 //在路由使用中間層檢查是否已經登入
+//加入middleware驗證路由，有登入才能進入指定的controller方法，沒登入則導向至login頁面
 Route::get('/checkout', ["middleware" => "auth", "uses" => "myController@checkout"]);
 
 Route::post('/cart/add', "myController@cart_add");
@@ -106,3 +107,8 @@ Route::get('/test/delete/{id}' ,function($id){
 });
 
 
+//註解掉Auth功能預設的首頁和登入頁，以使用自定義的頁面
+
+//Route::auth();
+
+//Route::get('/home', 'HomeController@index');

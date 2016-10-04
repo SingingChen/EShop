@@ -7,7 +7,8 @@
 
 	<meta name="author" content="">
     <title>{{$title}} | E-Shopper</title>
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
     <link href="{{asset('css/price-range.css')}}" rel="stylesheet">
@@ -47,6 +48,8 @@
 								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
 								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="https://www.facebook.com/sharer/sharer.php?u={{url("")}}" target="_blank"><i class="fa fa-facebook-official"></i></a></li>
+
 							</ul>
 						</div>
 					</div>

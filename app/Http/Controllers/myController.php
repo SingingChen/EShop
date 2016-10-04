@@ -9,7 +9,11 @@ use App\Http\Requests;
 use Request;
 use Cart;
 use Auth;
-use Socialite;
+use Laravel\Socialite\Facades\Socialite;
+use App\SocialiteUser;
+use App\SocialiteUserService;
+
+
 
 class myController extends Controller
 {
@@ -158,8 +162,7 @@ class myController extends Controller
 
     public function register()
     {
-        if (Request::isMethod('post'))
-        {
+        if (Request::isMethod('post')) {
             \App\User::create([
                 'name' => Request::get('name'),
                 'email' => Request::get('email'),
@@ -167,19 +170,16 @@ class myController extends Controller
             ]);
 
 
-            return redirect("login")->with(['message' =>'Register Sucess']);
+            return redirect("/login")->with(['message' => 'Register Sucess']);
         }
     }
 
     public function auth_login()
     {
-        if(Auth::attempt(["email" =>Request::get("email"),"password" =>Request::get("password")]))
-        {
+        if (Auth::attempt(["email" => Request::get("email"), "password" => Request::get("password")])) {
             return redirect("/");
-        }
-        else
-        {
-            return redirect("login");
+        } else {
+            return redirect("/login");
         }
     }
 
@@ -188,17 +188,35 @@ class myController extends Controller
         Auth::logout();
         return redirect("/");
     }
+
     public function fb_redirect()
     {
         return Socialite::driver("facebook")->redirect();
 
     }
-    public function  fb_callback()
+
+
+    public function fb_callback(SocialiteUserService $socialiteUserService)
     {
 //        return "我回來了～";
+//        $vendor_user = Socialite::driver("facebook")->user();
+//        $user = $socialiteUserService->checkUser(Socialite::driver("facebook")->user());
+//        Auth::login($user);
+//        return "$vendor_user->id, $vendor_user->nickname, $vendor_user->name, $vendor_user->email, $vendor_user->avatar";
+//        return redirect('/#fb_login_success');
+
+        //取得回傳的使用者資料
         $vendor_user = Socialite::driver("facebook")->user();
 
-        return "$vendor_user->id, $vendor_user->nickname, $vendor_user->name, $vendor_user->email, $vendor_user->avatar";
+        //測試
+        //return "$vendor_user->id, $vendor_user->nickname, $vendor_user->name, $vendor_user->email, $vendor_user->avatar";
+
+        //使用自定義的服務比對FB回傳的使用者資料與資料庫裡的資料，有登錄過則傳回紀錄的帳號資料，未登錄過則新增資料進資料庫並回傳回來
+        $user = $socialiteUserService->checkUser($vendor_user);
+        //使用上一步傳回的使用者資料以Auth進行內部登入動作，以利後續相關操作的使用Auth驗證是否已登入，避免頻繁透過fb驗證
+        Auth::login($user);
+
+        return redirect('/');
 
     }
 

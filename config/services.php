@@ -38,6 +38,7 @@ return [
         'client_id' => '303231333389149',
         'client_secret' =>'dc1a748cface56e89da20e4546820f18',
         'redirect' => 'http://localhost:8080/sample/eshop/public/fb_callback',
+
     ],
 
 ];
