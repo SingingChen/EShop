@@ -129,3 +129,4 @@ Route::group([
 );
 
 Route::get('/account', ["middleware" => "auth", "uses" => "myController@account"]);
+Route::post('/account', ["middleware" => "auth", "uses" => "myController@account"]);

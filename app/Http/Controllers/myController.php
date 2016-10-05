@@ -12,6 +12,10 @@ use Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\SocialiteUser;
 use App\SocialiteUserService;
+use App\User;
+use Validator;
+
+
 
 
 
