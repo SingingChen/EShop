@@ -184,9 +184,6 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         // Allpay歐付寶
         ScottChayaa\Allpay\AllpayServiceProvider::class,
-
-
-
     ],
 
     /*
